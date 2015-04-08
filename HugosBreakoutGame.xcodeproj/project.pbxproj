@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		B1605FFC1AD5960D00A3E8E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1605FFB1AD5960D00A3E8E8 /* AppDelegate.swift */; };
-		B1605FFE1AD5960D00A3E8E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1605FFD1AD5960D00A3E8E8 /* ViewController.swift */; };
 		B16060011AD5960D00A3E8E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1605FFF1AD5960D00A3E8E8 /* Main.storyboard */; };
 		B16060031AD5960D00A3E8E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B16060021AD5960D00A3E8E8 /* Images.xcassets */; };
 		B16060061AD5960D00A3E8E8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16060041AD5960D00A3E8E8 /* LaunchScreen.xib */; };
 		B16060121AD5960D00A3E8E8 /* HugosBreakoutGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16060111AD5960D00A3E8E8 /* HugosBreakoutGameTests.swift */; };
+		B160601E1AD59CDD00A3E8E8 /* BreakoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B160601D1AD59CDD00A3E8E8 /* BreakoutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +29,13 @@
 		B1605FF61AD5960D00A3E8E8 /* HugosBreakoutGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HugosBreakoutGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1605FFA1AD5960D00A3E8E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1605FFB1AD5960D00A3E8E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B1605FFD1AD5960D00A3E8E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B16060001AD5960D00A3E8E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B16060021AD5960D00A3E8E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B16060051AD5960D00A3E8E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B160600B1AD5960D00A3E8E8 /* HugosBreakoutGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HugosBreakoutGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16060101AD5960D00A3E8E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B16060111AD5960D00A3E8E8 /* HugosBreakoutGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HugosBreakoutGameTests.swift; sourceTree = "<group>"; };
+		B160601D1AD59CDD00A3E8E8 /* BreakoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakoutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +77,8 @@
 		B1605FF81AD5960D00A3E8E8 /* HugosBreakoutGame */ = {
 			isa = PBXGroup;
 			children = (
-				B1605FFB1AD5960D00A3E8E8 /* AppDelegate.swift */,
-				B1605FFD1AD5960D00A3E8E8 /* ViewController.swift */,
+				B160601D1AD59CDD00A3E8E8 /* BreakoutViewController.swift */,
 				B1605FFF1AD5960D00A3E8E8 /* Main.storyboard */,
-				B16060021AD5960D00A3E8E8 /* Images.xcassets */,
-				B16060041AD5960D00A3E8E8 /* LaunchScreen.xib */,
 				B1605FF91AD5960D00A3E8E8 /* Supporting Files */,
 			);
 			path = HugosBreakoutGame;
@@ -90,7 +87,10 @@
 		B1605FF91AD5960D00A3E8E8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1605FFB1AD5960D00A3E8E8 /* AppDelegate.swift */,
+				B16060021AD5960D00A3E8E8 /* Images.xcassets */,
 				B1605FFA1AD5960D00A3E8E8 /* Info.plist */,
+				B16060041AD5960D00A3E8E8 /* LaunchScreen.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -212,8 +212,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1605FFE1AD5960D00A3E8E8 /* ViewController.swift in Sources */,
 				B1605FFC1AD5960D00A3E8E8 /* AppDelegate.swift in Sources */,
+				B160601E1AD59CDD00A3E8E8 /* BreakoutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +407,7 @@
 				B16060171AD5960D00A3E8E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B16060181AD5960D00A3E8E8 /* Build configuration list for PBXNativeTarget "HugosBreakoutGameTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +416,7 @@
 				B160601A1AD5960D00A3E8E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
