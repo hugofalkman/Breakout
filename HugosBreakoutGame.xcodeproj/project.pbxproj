@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B1605FFC1AD5960D00A3E8E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1605FFB1AD5960D00A3E8E8 /* AppDelegate.swift */; };
+		B1605FFE1AD5960D00A3E8E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1605FFD1AD5960D00A3E8E8 /* ViewController.swift */; };
+		B16060011AD5960D00A3E8E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1605FFF1AD5960D00A3E8E8 /* Main.storyboard */; };
+		B16060031AD5960D00A3E8E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B16060021AD5960D00A3E8E8 /* Images.xcassets */; };
+		B16060061AD5960D00A3E8E8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16060041AD5960D00A3E8E8 /* LaunchScreen.xib */; };
+		B16060121AD5960D00A3E8E8 /* HugosBreakoutGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16060111AD5960D00A3E8E8 /* HugosBreakoutGameTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B160600C1AD5960D00A3E8E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1605FEE1AD5960D00A3E8E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1605FF51AD5960D00A3E8E8;
+			remoteInfo = HugosBreakoutGame;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B1605FF61AD5960D00A3E8E8 /* HugosBreakoutGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HugosBreakoutGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1605FFA1AD5960D00A3E8E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1605FFB1AD5960D00A3E8E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B1605FFD1AD5960D00A3E8E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B16060001AD5960D00A3E8E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B16060021AD5960D00A3E8E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B16060051AD5960D00A3E8E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		B160600B1AD5960D00A3E8E8 /* HugosBreakoutGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HugosBreakoutGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B16060101AD5960D00A3E8E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B16060111AD5960D00A3E8E8 /* HugosBreakoutGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HugosBreakoutGameTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B1605FF31AD5960D00A3E8E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B16060081AD5960D00A3E8E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B1605FED1AD5960D00A3E8E8 = {
+			isa = PBXGroup;
+			children = (
+				B1605FF81AD5960D00A3E8E8 /* HugosBreakoutGame */,
+				B160600E1AD5960D00A3E8E8 /* HugosBreakoutGameTests */,
+				B1605FF71AD5960D00A3E8E8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B1605FF71AD5960D00A3E8E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1605FF61AD5960D00A3E8E8 /* HugosBreakoutGame.app */,
+				B160600B1AD5960D00A3E8E8 /* HugosBreakoutGameTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1605FF81AD5960D00A3E8E8 /* HugosBreakoutGame */ = {
+			isa = PBXGroup;
+			children = (
+				B1605FFB1AD5960D00A3E8E8 /* AppDelegate.swift */,
+				B1605FFD1AD5960D00A3E8E8 /* ViewController.swift */,
+				B1605FFF1AD5960D00A3E8E8 /* Main.storyboard */,
+				B16060021AD5960D00A3E8E8 /* Images.xcassets */,
+				B16060041AD5960D00A3E8E8 /* LaunchScreen.xib */,
+				B1605FF91AD5960D00A3E8E8 /* Supporting Files */,
+			);
+			path = HugosBreakoutGame;
+			sourceTree = "<group>";
+		};
+		B1605FF91AD5960D00A3E8E8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B1605FFA1AD5960D00A3E8E8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B160600E1AD5960D00A3E8E8 /* HugosBreakoutGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				B16060111AD5960D00A3E8E8 /* HugosBreakoutGameTests.swift */,
+				B160600F1AD5960D00A3E8E8 /* Supporting Files */,
+			);
+			path = HugosBreakoutGameTests;
+			sourceTree = "<group>";
+		};
+		B160600F1AD5960D00A3E8E8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B16060101AD5960D00A3E8E8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B1605FF51AD5960D00A3E8E8 /* HugosBreakoutGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B16060151AD5960D00A3E8E8 /* Build configuration list for PBXNativeTarget "HugosBreakoutGame" */;
+			buildPhases = (
+				B1605FF21AD5960D00A3E8E8 /* Sources */,
+				B1605FF31AD5960D00A3E8E8 /* Frameworks */,
+				B1605FF41AD5960D00A3E8E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HugosBreakoutGame;
+			productName = HugosBreakoutGame;
+			productReference = B1605FF61AD5960D00A3E8E8 /* HugosBreakoutGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B160600A1AD5960D00A3E8E8 /* HugosBreakoutGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B16060181AD5960D00A3E8E8 /* Build configuration list for PBXNativeTarget "HugosBreakoutGameTests" */;
+			buildPhases = (
+				B16060071AD5960D00A3E8E8 /* Sources */,
+				B16060081AD5960D00A3E8E8 /* Frameworks */,
+				B16060091AD5960D00A3E8E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B160600D1AD5960D00A3E8E8 /* PBXTargetDependency */,
+			);
+			name = HugosBreakoutGameTests;
+			productName = HugosBreakoutGameTests;
+			productReference = B160600B1AD5960D00A3E8E8 /* HugosBreakoutGameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B1605FEE1AD5960D00A3E8E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "H Hugo Fakman";
+				TargetAttributes = {
+					B1605FF51AD5960D00A3E8E8 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					B160600A1AD5960D00A3E8E8 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = B1605FF51AD5960D00A3E8E8;
+					};
+				};
+			};
+			buildConfigurationList = B1605FF11AD5960D00A3E8E8 /* Build configuration list for PBXProject "HugosBreakoutGame" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B1605FED1AD5960D00A3E8E8;
+			productRefGroup = B1605FF71AD5960D00A3E8E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B1605FF51AD5960D00A3E8E8 /* HugosBreakoutGame */,
+				B160600A1AD5960D00A3E8E8 /* HugosBreakoutGameTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B1605FF41AD5960D00A3E8E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B16060011AD5960D00A3E8E8 /* Main.storyboard in Resources */,
+				B16060061AD5960D00A3E8E8 /* LaunchScreen.xib in Resources */,
+				B16060031AD5960D00A3E8E8 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B16060091AD5960D00A3E8E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B1605FF21AD5960D00A3E8E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1605FFE1AD5960D00A3E8E8 /* ViewController.swift in Sources */,
+				B1605FFC1AD5960D00A3E8E8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B16060071AD5960D00A3E8E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B16060121AD5960D00A3E8E8 /* HugosBreakoutGameTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B160600D1AD5960D00A3E8E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1605FF51AD5960D00A3E8E8 /* HugosBreakoutGame */;
+			targetProxy = B160600C1AD5960D00A3E8E8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B1605FFF1AD5960D00A3E8E8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B16060001AD5960D00A3E8E8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B16060041AD5960D00A3E8E8 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B16060051AD5960D00A3E8E8 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B16060131AD5960D00A3E8E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B16060141AD5960D00A3E8E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B16060161AD5960D00A3E8E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HugosBreakoutGame/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B16060171AD5960D00A3E8E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HugosBreakoutGame/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B16060191AD5960D00A3E8E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HugosBreakoutGameTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HugosBreakoutGame.app/HugosBreakoutGame";
+			};
+			name = Debug;
+		};
+		B160601A1AD5960D00A3E8E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HugosBreakoutGameTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HugosBreakoutGame.app/HugosBreakoutGame";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B1605FF11AD5960D00A3E8E8 /* Build configuration list for PBXProject "HugosBreakoutGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B16060131AD5960D00A3E8E8 /* Debug */,
+				B16060141AD5960D00A3E8E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B16060151AD5960D00A3E8E8 /* Build configuration list for PBXNativeTarget "HugosBreakoutGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B16060161AD5960D00A3E8E8 /* Debug */,
+				B16060171AD5960D00A3E8E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B16060181AD5960D00A3E8E8 /* Build configuration list for PBXNativeTarget "HugosBreakoutGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B16060191AD5960D00A3E8E8 /* Debug */,
+				B160601A1AD5960D00A3E8E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B1605FEE1AD5960D00A3E8E8 /* Project object */;
+}
