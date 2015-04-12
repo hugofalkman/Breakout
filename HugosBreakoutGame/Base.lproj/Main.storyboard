@@ -71,10 +71,30 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="tfC-dy-Ij2">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="45" id="tfC-dy-Ij2">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tfC-dy-Ij2" id="23Q-6P-S1M">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add gravity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aT2-Sf-c35">
+                                                    <rect key="frame" x="8" y="12.5" width="85" height="19.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="acQ-gm-bxi">
+                                                    <rect key="frame" x="543" y="7" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="gravityChanged:" destination="IQQ-0T-ViK" eventType="valueChanged" id="cDJ-U3-IEJ"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="acQ-gm-bxi" secondAttribute="centerY" constant="-0.25" id="USs-tY-dJb"/>
+                                                <constraint firstAttribute="centerY" secondItem="aT2-Sf-c35" secondAttribute="centerY" id="Uic-lX-bNT"/>
+                                                <constraint firstItem="aT2-Sf-c35" firstAttribute="leading" secondItem="23Q-6P-S1M" secondAttribute="leadingMargin" id="WMB-kk-PYD"/>
+                                                <constraint firstItem="acQ-gm-bxi" firstAttribute="trailing" secondItem="23Q-6P-S1M" secondAttribute="trailingMargin" id="ovh-H8-t70"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="l7c-73-NY9">
@@ -122,6 +142,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="TeM-dx-ihH"/>
                     <connections>
+                        <outlet property="gravitySwitch" destination="acQ-gm-bxi" id="mun-7o-NMe"/>
                         <outlet property="pushMagnLabel" destination="yrw-xc-lr0" id="Sh5-2I-7RS"/>
                         <outlet property="pushMagnSlider" destination="6tU-Dj-F59" id="ct8-Dc-B99"/>
                     </connections>

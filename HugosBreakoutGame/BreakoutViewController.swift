@@ -50,6 +50,8 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
         super.viewWillAppear(animated)
         let settings = Settings()
         pushStrength = settings.pushMagnitude
+        breakoutBehavior.gravityOn = settings.gravity
+        
     }
     
     override func viewDidLayoutSubviews() {

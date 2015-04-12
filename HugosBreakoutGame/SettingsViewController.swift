@@ -15,6 +15,9 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var pushMagnLabel: UILabel!
     @IBOutlet weak var pushMagnSlider: UISlider!
     
+    @IBOutlet weak var gravitySwitch: UISwitch!
+    
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -26,6 +29,7 @@ class SettingsViewController: UITableViewController {
         super.viewWillAppear(animated)
         let setting = Settings()
         pushMagnitude = setting.pushMagnitude
+        gravity = setting.gravity
     }
     
     // MARK: - View
@@ -43,6 +47,16 @@ class SettingsViewController: UITableViewController {
     @IBAction func pushMagnChanged(sender: UISlider) {
         pushMagnitude = CGFloat(sender.value)
         settings.pushMagnitude = pushMagnitude
+    }
+    
+    private var gravity: Bool {
+        get { return gravitySwitch.on }
+        set { gravitySwitch.on = newValue }
+    }
+    
+    @IBAction func gravityChanged(sender: UISwitch) {
+        gravity = sender.on
+        settings.gravity = gravity
     }
 }
 

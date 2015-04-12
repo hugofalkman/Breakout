@@ -34,6 +34,8 @@ class BreakoutBehavior: UIDynamicBehavior {
         return lazyBallBehavior
         }()
 
+    var gravityOn: Bool!
+    
     var items: [UIView] {
         return ballBehavior.items.map{$0 as UIView}
     }
@@ -52,6 +54,7 @@ class BreakoutBehavior: UIDynamicBehavior {
     
     func addBall(ball: UIView) {
         dynamicAnimator?.referenceView?.addSubview(ball)
+        if gravityOn == true { gravity.addItem(ball) }
         collider.addItem(ball)
         ballBehavior.addItem(ball)
     }

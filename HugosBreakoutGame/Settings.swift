@@ -17,10 +17,17 @@ class Settings
         set {defaults.setObject(newValue, forKey: Constants.pushMagnKey) }
     }
     
+    var gravity: Bool {
+        get {return defaults.objectForKey(Constants.gravityKey) as? Bool ?? Constants.gravityDefault}
+        set {defaults.setObject(newValue, forKey: Constants.gravityKey) }
+    }
+    
     // MARK: - Constants
     
     private struct Constants {
         static let pushMagnKey = "pushMagnKey"
         static let pushMagnDefault: CGFloat = 7.0
+        static let gravityKey = "gravityKey"
+        static let gravityDefault = false
     }
 }
