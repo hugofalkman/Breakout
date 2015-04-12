@@ -24,9 +24,11 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
     
     let breakoutBehavior = BreakoutBehavior()
     
-    func pushBall(ball: UIView) {
-        if let pushBehavior = UIPushBehavior(items: [ball], mode: UIPushBehaviorMode.Instantaneous) {
-            pushBehavior.magnitude = 1.0
+    private var pushStrength: CGFloat!
+    
+    private func push(view: UIView, points: CGFloat) {
+        if let pushBehavior = UIPushBehavior(items: [view], mode: UIPushBehaviorMode.Instantaneous) {
+            pushBehavior.magnitude = pushStrength * points / 10000.0
             pushBehavior.angle = CGFloat(2 * M_PI * Double(arc4random()) / Double(UINT32_MAX))
             // println("\(pushBehavior.angle)")
             pushBehavior.action = { [unowned pushBehavior] in
@@ -40,28 +42,23 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         animator.addBehavior(breakoutBehavior)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let settings = Settings()
+        pushStrength = settings.pushMagnitude
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        var barrierSize = CGSize(width: 8, height: gameView.bounds.size.height)
-        var barrierOrigin = CGPoint(x: -8, y: 0)
-        var path = UIBezierPath(rect: CGRect(origin: barrierOrigin, size: barrierSize))
-        breakoutBehavior.addBarrier(path, named: PathNames.LeftBarrier)
-        gameView.setPath(path, named: PathNames.LeftBarrier)
         
-        barrierOrigin = CGPoint(x: gameView.bounds.size.width, y: 0)
-        path = UIBezierPath(rect: CGRect(origin: barrierOrigin, size: barrierSize))
-        breakoutBehavior.addBarrier(path, named: PathNames.RightBarrier)
-        gameView.setPath(path, named: PathNames.RightBarrier)
+        // Add the three side barriers
+        sideBarriers()
         
-        barrierOrigin = CGPoint(x: 0, y: 0)
-        barrierSize = CGSize(width: gameView.bounds.size.width, height: 8)
-        path = UIBezierPath(rect: CGRect(origin: barrierOrigin, size: barrierSize))
-        breakoutBehavior.addBarrier(path, named: PathNames.TopBarrier)
-        gameView.setPath(path, named: PathNames.TopBarrier)
-        
+        // Put back ball inside gameView if needed after rotation
         for item in breakoutBehavior.items {
             if !CGRectContainsRect(gameView.bounds, item.frame) {
                 placeBall(item)
@@ -81,30 +78,55 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
     
     // MARK: - Ball
     
-    var ballSize : CGSize {
+    private var ballSize : CGSize {
         let size = Constants.RelBallSize * min(gameView.bounds.size.width, gameView.bounds.size.height)
         return CGSize(width: size, height: size)
     }
     
-    func ball() {
+    private func ball() {
         if breakoutBehavior.items.count == 0 {
             let ballView = UIView(frame: CGRect(origin: CGPointZero, size: ballSize))
             placeBall(ballView)
             ballView.backgroundColor = Constants.BallColor
             ballView.layer.cornerRadius = ballSize.width / 2.0
-            
+          
             breakoutBehavior.addBall(ballView)
         }
-        pushBall(breakoutBehavior.items.last!)
+        
+        var points = ballSize.width / 2.0
+        points = CGFloat(M_PI) * points * points
+        
+        push(breakoutBehavior.items.last!, points: points)
     }
     
-    func placeBall(ball: UIView) {
+    private func placeBall(ball: UIView) {
         ball.center = CGPoint(x: gameView.bounds.midX, y: gameView.bounds.midY)
+    }
+    
+    // MARK: - Barriers
+    
+    private func sideBarriers() {
+        var barrierSize = CGSize(width: 8, height: gameView.bounds.size.height)
+        var barrierOrigin = CGPoint(x: -8, y: 0)
+        var path = UIBezierPath(rect: CGRect(origin: barrierOrigin, size: barrierSize))
+        breakoutBehavior.addBarrier(path, named: PathNames.LeftBarrier)
+        gameView.setPath(path, named: PathNames.LeftBarrier)
+        
+        barrierOrigin = CGPoint(x: gameView.bounds.size.width, y: 0)
+        path = UIBezierPath(rect: CGRect(origin: barrierOrigin, size: barrierSize))
+        breakoutBehavior.addBarrier(path, named: PathNames.RightBarrier)
+        gameView.setPath(path, named: PathNames.RightBarrier)
+        
+        barrierOrigin = CGPoint(x: 0, y: 0)
+        barrierSize = CGSize(width: gameView.bounds.size.width, height: 8)
+        path = UIBezierPath(rect: CGRect(origin: barrierOrigin, size: barrierSize))
+        breakoutBehavior.addBarrier(path, named: PathNames.TopBarrier)
+        gameView.setPath(path, named: PathNames.TopBarrier)
     }
     
     // MARK: - Constants
     
-    struct PathNames {
+    private struct PathNames {
         static let LeftBarrier = "LeftBarrier"
         static let TopBarrier = "TopBarrier"
         static let RightBarrier = "RightBarrier"

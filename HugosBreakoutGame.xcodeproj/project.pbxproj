@@ -14,6 +14,8 @@
 		B16060121AD5960D00A3E8E8 /* HugosBreakoutGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16060111AD5960D00A3E8E8 /* HugosBreakoutGameTests.swift */; };
 		B160601E1AD59CDD00A3E8E8 /* BreakoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B160601D1AD59CDD00A3E8E8 /* BreakoutViewController.swift */; };
 		B1CFC8971AD81406001167F0 /* BezierPathsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CFC8961AD81406001167F0 /* BezierPathsView.swift */; };
+		B1D566061ADAB23900AAD7E9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D566051ADAB23900AAD7E9 /* SettingsViewController.swift */; };
+		B1D566081ADABD9500AAD7E9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D566071ADABD9500AAD7E9 /* Settings.swift */; };
 		B1DFD65E1AD680D7007AAC3F /* BreakoutBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DFD65D1AD680D7007AAC3F /* BreakoutBehavior.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		B16060111AD5960D00A3E8E8 /* HugosBreakoutGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HugosBreakoutGameTests.swift; sourceTree = "<group>"; };
 		B160601D1AD59CDD00A3E8E8 /* BreakoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakoutViewController.swift; sourceTree = "<group>"; };
 		B1CFC8961AD81406001167F0 /* BezierPathsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierPathsView.swift; sourceTree = "<group>"; };
+		B1D566051ADAB23900AAD7E9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B1D566071ADABD9500AAD7E9 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B1DFD65D1AD680D7007AAC3F /* BreakoutBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakoutBehavior.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +87,8 @@
 			children = (
 				B160601D1AD59CDD00A3E8E8 /* BreakoutViewController.swift */,
 				B1DFD65D1AD680D7007AAC3F /* BreakoutBehavior.swift */,
+				B1D566051ADAB23900AAD7E9 /* SettingsViewController.swift */,
+				B1D566071ADABD9500AAD7E9 /* Settings.swift */,
 				B1CFC8961AD81406001167F0 /* BezierPathsView.swift */,
 				B1605FFF1AD5960D00A3E8E8 /* Main.storyboard */,
 				B1605FF91AD5960D00A3E8E8 /* Supporting Files */,
@@ -218,9 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1D566081ADABD9500AAD7E9 /* Settings.swift in Sources */,
 				B1CFC8971AD81406001167F0 /* BezierPathsView.swift in Sources */,
 				B1DFD65E1AD680D7007AAC3F /* BreakoutBehavior.swift in Sources */,
 				B1605FFC1AD5960D00A3E8E8 /* AppDelegate.swift in Sources */,
+				B1D566061ADAB23900AAD7E9 /* SettingsViewController.swift in Sources */,
 				B160601E1AD59CDD00A3E8E8 /* BreakoutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
