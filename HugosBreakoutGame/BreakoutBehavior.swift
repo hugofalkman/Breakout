@@ -60,6 +60,7 @@ class BreakoutBehavior: UIDynamicBehavior {
     }
     
     func removeBall(ball: UIView) {
+        gravity.removeItem(ball)
         collider.removeItem(ball)
         ballBehavior.removeItem(ball)
         ball.removeFromSuperview()

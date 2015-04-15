@@ -48,6 +48,7 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        // Settings changes to become active when tabbing back to Breakout game
         let settings = Settings()
         pushStrength = settings.pushMagnitude
         breakoutBehavior.gravityOn = settings.gravity
@@ -57,10 +58,15 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        // Setting background image
+        if let image = UIImage(named:"bg") {
+            gameView.backgroundColor = UIColor(patternImage: image)
+        }
+        
         // Add the three side barriers
         sideBarriers()
         
-        // Put back ball inside gameView if needed after rotation
+        // If needed put ball back inside gameView after rotation
         for item in breakoutBehavior.items {
             if !CGRectContainsRect(gameView.bounds, item.frame) {
                 placeBall(item)
@@ -68,15 +74,37 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
             }
         }
         
+        // Set or reset paddle in center posiion
+        paddle.frame.size = paddleSize
+        paddle.center.y = CGFloat(gameView.bounds.maxY - paddle.bounds.height / 2 - Constants.PaddleYOffset)
+        if breakoutBehavior.items.count == 0 {
+            paddle.center.x = gameView.bounds.midX 
+        }
+        breakoutBehavior.addBarrier(UIBezierPath(rect: paddle.frame), named: PathNames.Paddle)
     }
     
     // MARK: - UIDynamicAnimatorDelegate
     
     // MARK: - Gestures
     
-    @IBAction func ball(sender: UITapGestureRecognizer) {
+    @IBAction func ball(gesture: UITapGestureRecognizer) {
         ball()
     }
+    
+    @IBAction func paddle(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .Ended: fallthrough
+        case .Changed:
+            let translation = gesture.translationInView(gameView)
+            let posChange = translation.x
+            if posChange != 0 {
+                paddleXPosition += posChange
+                gesture.setTranslation(CGPointZero, inView: gameView)
+            }
+        default: break
+        }
+    }
+    
     
     // MARK: - Ball
     
@@ -102,7 +130,8 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
     }
     
     private func placeBall(ball: UIView) {
-        ball.center = CGPoint(x: gameView.bounds.midX, y: gameView.bounds.midY)
+        ball.center = paddle.center
+        ball.center.y -= (Constants.PaddleHeight + ballSize.height) / 2
     }
     
     // MARK: - Barriers
@@ -126,17 +155,48 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
         gameView.setPath(path, named: PathNames.TopBarrier)
     }
     
+    private var paddleSize : CGSize {
+        let width = Constants.RelPaddleWidth * gameView.bounds.size.width
+        return CGSize(width: width, height: Constants.PaddleHeight)
+    }
+    
+    private var paddleXPosition: CGFloat {
+        get { return paddle.frame.origin.x }
+        set {
+            paddle.frame.origin.x = min(max(newValue, 0), gameView.bounds.maxX - paddleSize.width)
+            breakoutBehavior.addBarrier(UIBezierPath(rect: paddle.frame), named: PathNames.Paddle)
+        }
+    }
+    
+    private lazy var paddle: UIImageView = {
+        let paddle = UIImageView(frame: CGRect(origin: CGPointZero, size: self.paddleSize))
+        if let image = UIImage(named: "paddle") {
+            paddle.image = image
+        }
+        
+        self.gameView.addSubview(paddle)
+        return paddle
+    }()
+    
+    
     // MARK: - Constants
     
     private struct PathNames {
         static let LeftBarrier = "LeftBarrier"
         static let TopBarrier = "TopBarrier"
         static let RightBarrier = "RightBarrier"
+        
+        static let Paddle = "Paddle"
     }
     
     struct Constants {
-        static let RelBallSize = CGFloat(0.125)
+        static let RelBallSize = CGFloat(0.07)
         static let BallColor = UIColor.brownColor()
+        
+        static let RelPaddleWidth = CGFloat(0.2)
+        static let PaddleHeight = CGFloat(10)
+        static let PaddleYOffset = CGFloat(30)
+        static let PaddleImage = "paddle"
     }
 }
 
