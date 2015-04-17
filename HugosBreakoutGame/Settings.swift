@@ -12,6 +12,16 @@ class Settings
 {
     private let defaults = NSUserDefaults.standardUserDefaults()
     
+    var brickRows: Int {
+        get {return defaults.objectForKey(Constants.brickRowKey) as? Int ?? Constants.brickRowDefault}
+        set {defaults.setObject(newValue, forKey: Constants.brickRowKey) }
+    }
+    
+    var brickColumns: Int {
+        get {return defaults.objectForKey(Constants.brickColumnKey) as? Int ?? Constants.brickColumnDefault}
+        set {defaults.setObject(newValue, forKey: Constants.brickColumnKey) }
+    }
+    
     var pushMagnitude: CGFloat {
         get {return defaults.objectForKey(Constants.pushMagnKey) as? CGFloat ?? Constants.pushMagnDefault}
         set {defaults.setObject(newValue, forKey: Constants.pushMagnKey) }
@@ -25,6 +35,10 @@ class Settings
     // MARK: - Constants
     
     private struct Constants {
+        static let brickRowKey = "brickRowKey"
+        static let brickRowDefault: Int = 5
+        static let brickColumnKey = "brickColumnKey"
+        static let brickColumnDefault: Int = 6
         static let pushMagnKey = "pushMagnKey"
         static let pushMagnDefault: CGFloat = 7.0
         static let gravityKey = "gravityKey"

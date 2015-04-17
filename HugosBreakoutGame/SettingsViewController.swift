@@ -12,6 +12,12 @@ class SettingsViewController: UITableViewController {
 
     // MARK: - Outlets
     
+    @IBOutlet weak var brickRowLabel: UILabel!
+    @IBOutlet weak var brickRowStepper: UIStepper!
+   
+    @IBOutlet weak var brickColumnLabel: UILabel!
+    @IBOutlet weak var brickColumnStepper: UIStepper!
+    
     @IBOutlet weak var pushMagnLabel: UILabel!
     @IBOutlet weak var pushMagnSlider: UISlider!
     
@@ -28,6 +34,8 @@ class SettingsViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let setting = Settings()
+        brickRows = setting.brickRows
+        brickColumns = setting.brickColumns
         pushMagnitude = setting.pushMagnitude
         gravity = setting.gravity
     }
@@ -35,6 +43,32 @@ class SettingsViewController: UITableViewController {
     // MARK: - View
     
     private let settings = Settings()
+    
+    private var brickRows: Int {
+        get { return Int(brickRowStepper.value) }
+        set {
+            brickRowStepper.value = Double(newValue)
+            brickRowLabel.text = "\(newValue)"
+        }
+    }
+    
+    @IBAction func brickRowChanged(sender: UIStepper) {
+        brickRows = Int(sender.value)
+        settings.brickRows = brickRows
+    }
+    
+    private var brickColumns: Int {
+        get { return Int(brickColumnStepper.value) }
+        set {
+            brickColumnStepper.value = Double(newValue)
+            brickColumnLabel.text = "\(newValue)"
+        }
+    }
+    
+    @IBAction func brickColumnChanged(sender: UIStepper) {
+        brickColumns = Int(sender.value)
+        settings.brickColumns = brickColumns
+    }
     
     private var pushMagnitude: CGFloat {
         get { return CGFloat(pushMagnSlider.value) }

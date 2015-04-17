@@ -52,6 +52,10 @@ class BreakoutBehavior: UIDynamicBehavior {
         collider.addBoundaryWithIdentifier(name, forPath: path)
     }
     
+    func removeBarrier(named name: String) {
+        collider.removeBoundaryWithIdentifier(name)
+    }
+    
     func addBall(ball: UIView) {
         dynamicAnimator?.referenceView?.addSubview(ball)
         if gravityOn == true { gravity.addItem(ball) }
