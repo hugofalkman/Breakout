@@ -59,6 +59,8 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
         let settings = Settings()
         brickRows = settings.brickRows
         brickColumns = settings.brickColumns
+        brickLevel = settings.brickLevel
+        relPaddleWidth = settings.relPaddleSize
         pushStrength = settings.pushMagnitude
         breakoutBehavior.gravityOn = settings.gravity
         
@@ -81,9 +83,7 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
             sideBarriers()
             
             // Set or reset paddle in center position
-            paddle.frame.size = paddleSize
-            paddle.center = CGPoint(x: gameView.bounds.midX, y: gameView.bounds.maxY - paddle.frame.size.height / 2 - Constants.PaddleYOffset)
-            breakoutBehavior.addBarrier(UIBezierPath(rect: paddle.frame), named: PathNames.Paddle)
+            resetPaddle()
             
             // If needed put ball back inside gameView after rotation
             for item in breakoutBehavior.items {
@@ -163,15 +163,23 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
         breakoutBehavior.addBarrier(path, named: PathNames.RightBarrier)
         gameView.setPath(path, named: PathNames.RightBarrier)
         
-        barrierOrigin = CGPoint(x: 0, y: 0)
+        barrierOrigin = CGPoint(x: 0, y: -8)
         barrierSize = CGSize(width: gameView.bounds.size.width, height: 8)
         path = UIBezierPath(rect: CGRect(origin: barrierOrigin, size: barrierSize))
         breakoutBehavior.addBarrier(path, named: PathNames.TopBarrier)
         gameView.setPath(path, named: PathNames.TopBarrier)
     }
     
+    private var relPaddleWidth: CGFloat! {
+        didSet {
+            if !gameViewSizeChanged {
+                resetPaddle()
+            }
+        }
+    }
+    
     private var paddleSize : CGSize {
-        let width = Constants.RelPaddleWidth * gameView.bounds.size.width
+        let width = relPaddleWidth * gameView.bounds.size.width
         return CGSize(width: width, height: Constants.PaddleHeight)
     }
     
@@ -193,6 +201,12 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
         return paddle
     }()
     
+    private func resetPaddle() {
+        paddle.frame.size = paddleSize
+        paddle.center = CGPoint(x: gameView.bounds.midX, y: gameView.bounds.maxY - paddle.frame.size.height / 2 - Constants.PaddleYOffset)
+        breakoutBehavior.addBarrier(UIBezierPath(rect: paddle.frame), named: PathNames.Paddle)
+    }
+    
     // MARK: - Bricks
     
     private var brickRows: Int! {
@@ -210,6 +224,14 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
         }
     }
     
+    private var brickLevel: Int! {
+        didSet {
+            if !gameViewSizeChanged {
+                generateBricks()
+            }
+        }
+    }
+    
     private var brickSize: CGSize {
         let width = (gameView.bounds.size.width - Constants.BrickSeparation) /  CGFloat(brickColumns) - Constants.BrickSeparation
         return CGSize(width: width, height: Constants.BrickHeight)
@@ -219,19 +241,43 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
     
     private func generateBricks() {
         removeBricks()
-        var origin = CGPoint(x: Constants.BrickSeparation, y: Constants.BrickYOffset)
-        for row in 0..<brickRows {
+        // Set the two different brick layout levels
+        var top = gameView.bounds.minY
+        var middle: CGFloat!
+        switch brickLevel {
+        case 0:
+            top += Constants.BrickYOffset
+            middle = Constants.BrickSeparation
+        case 1:
+            top += Constants.BrickSeparation
+            middle = Constants.BrickYOffset
+        default: break
+        }
+        // Set the brick layout
+        let midPoint = brickRows / 2
+        if midPoint != 0{
+            let origin = CGPoint(x: Constants.BrickSeparation, y: top)
+            addBricks(origin, rowStart: 0, rowEnd: midPoint - 1)
+        }
+        let origin = CGPoint(x: Constants.BrickSeparation, y: top + middle + CGFloat(midPoint) * (Constants.BrickHeight + Constants.BrickSeparation) - Constants.BrickSeparation)
+        addBricks(origin, rowStart: midPoint, rowEnd: brickRows - 1)
+    }
+    
+    private func addBricks(origin: CGPoint, rowStart: Int, rowEnd: Int) {
+        var brickOrigin = origin
+        for row in rowStart...rowEnd {
             for column in 0..<brickColumns {
-                var brick = UIView(frame: CGRect(origin: origin, size: brickSize))
+                var brick = UIView(frame: CGRect(origin: brickOrigin, size: brickSize))
                 brick.backgroundColor = UIColor.rainbow(row, n: brickRows)
                 gameView.addSubview(brick)
                 bricks.append(brick)
                 breakoutBehavior.addBarrier(UIBezierPath(rect: brick.frame), named: "\(bricks.count - 1)")
-                origin.x += Constants.BrickSeparation + brickSize.width
+                brickOrigin.x += Constants.BrickSeparation + brickSize.width
             }
-            origin.x = Constants.BrickSeparation
-            origin.y += Constants.BrickSeparation + brickSize.height
+            brickOrigin.x = Constants.BrickSeparation
+            brickOrigin.y += Constants.BrickSeparation + brickSize.height
         }
+        
     }
     
     private func removeBricks() {
@@ -257,7 +303,6 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate
         static let RelBallSize = CGFloat(0.07)
         static let BallColor = UIColor.brownColor()
         
-        static let RelPaddleWidth = CGFloat(0.2)
         static let PaddleHeight = CGFloat(10)
         static let PaddleYOffset = CGFloat(30)
         static let PaddleImage = "paddle"

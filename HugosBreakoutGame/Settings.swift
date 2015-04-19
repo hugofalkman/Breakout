@@ -22,6 +22,16 @@ class Settings
         set {defaults.setObject(newValue, forKey: Constants.brickColumnKey) }
     }
     
+    var brickLevel: Int {
+        get {return defaults.objectForKey(Constants.brickLevelKey) as? Int ?? Constants.brickLevelDefault}
+        set {defaults.setObject(newValue, forKey: Constants.brickLevelKey) }
+    }
+    
+    var relPaddleSize: CGFloat {
+        get {return defaults.objectForKey(Constants.relPaddleKey) as? CGFloat ?? Constants.relPaddleDefault}
+        set {defaults.setObject(newValue, forKey: Constants.relPaddleKey) }
+    }
+    
     var pushMagnitude: CGFloat {
         get {return defaults.objectForKey(Constants.pushMagnKey) as? CGFloat ?? Constants.pushMagnDefault}
         set {defaults.setObject(newValue, forKey: Constants.pushMagnKey) }
@@ -39,6 +49,10 @@ class Settings
         static let brickRowDefault: Int = 5
         static let brickColumnKey = "brickColumnKey"
         static let brickColumnDefault: Int = 6
+        static let brickLevelKey = "brickLevelKey"
+        static let brickLevelDefault: Int = 0
+        static let relPaddleKey = "relPaddleKey"
+        static let relPaddleDefault: CGFloat = 0.2
         static let pushMagnKey = "pushMagnKey"
         static let pushMagnDefault: CGFloat = 7.0
         static let gravityKey = "gravityKey"

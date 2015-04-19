@@ -18,6 +18,11 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var brickColumnLabel: UILabel!
     @IBOutlet weak var brickColumnStepper: UIStepper!
     
+    @IBOutlet weak var brickLevelSegmControl: UISegmentedControl!
+    
+    @IBOutlet weak var relPaddleLabel: UILabel!
+    @IBOutlet weak var relPaddleSlider: UISlider!
+    
     @IBOutlet weak var pushMagnLabel: UILabel!
     @IBOutlet weak var pushMagnSlider: UISlider!
     
@@ -36,6 +41,8 @@ class SettingsViewController: UITableViewController {
         let setting = Settings()
         brickRows = setting.brickRows
         brickColumns = setting.brickColumns
+        brickLevel = setting.brickLevel
+        relPaddleSize = setting.relPaddleSize
         pushMagnitude = setting.pushMagnitude
         gravity = setting.gravity
     }
@@ -68,6 +75,29 @@ class SettingsViewController: UITableViewController {
     @IBAction func brickColumnChanged(sender: UIStepper) {
         brickColumns = Int(sender.value)
         settings.brickColumns = brickColumns
+    }
+    
+    private var brickLevel: Int {
+        get { return brickLevelSegmControl.selectedSegmentIndex }
+        set { brickLevelSegmControl.selectedSegmentIndex = newValue }
+    }
+    
+    @IBAction func brickLevelChanged(sender: UISegmentedControl) {
+        brickLevel = sender.selectedSegmentIndex
+        settings.brickLevel = brickLevel
+    }
+    
+    private var relPaddleSize: CGFloat {
+        get { return CGFloat(relPaddleSlider.value) }
+        set {
+            relPaddleSlider.value = Float(newValue)
+            relPaddleLabel.text = "\(relPaddleSlider.value)"
+        }
+    }
+    
+    @IBAction func relPaddleChanged(sender: UISlider) {
+        relPaddleSize = CGFloat(sender.value)
+        settings.relPaddleSize = relPaddleSize
     }
     
     private var pushMagnitude: CGFloat {
