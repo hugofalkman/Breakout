@@ -35,8 +35,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="8zO-Gl-b1I" secondAttribute="trailing" id="vLk-zO-BJ0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Breakout Game" id="CxY-SO-3lu"/>
+                    <navigationItem key="navigationItem" title="Breakout Game" id="CxY-SO-3lu">
+                        <barButtonItem key="leftBarButtonItem" title="Ball" id="JGh-hB-qup"/>
+                        <barButtonItem key="rightBarButtonItem" title="Bricks" id="h0F-kJ-aCq"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="ballLabel" destination="JGh-hB-qup" id="I1j-dr-ic6"/>
+                        <outlet property="bricksLabel" destination="h0F-kJ-aCq" id="gtY-W2-qva"/>
                         <outlet property="gameView" destination="8zO-Gl-b1I" id="ZtW-Aa-TvI"/>
                     </connections>
                 </viewController>
@@ -70,7 +75,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pVK-pd-Pli" id="kyc-iK-Gc0">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    Number of rows" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsQ-ie-s1p">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="    # of rows" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsQ-ie-s1p">
                                                     <rect key="frame" x="8" y="13" width="136.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,7 +115,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ncQ-oQ-5b8" id="uZi-eU-k3Y">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    Number of columns" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lO3-OV-Osy">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="    # of columns" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lO3-OV-Osy">
                                                     <rect key="frame" x="8" y="12" width="164" height="19.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -185,12 +190,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.01" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="c1R-O3-a1B">
-                                                    <rect key="frame" x="6" y="35.5" width="588" height="31"/>
+                                                    <rect key="frame" x="6" y="27.5" width="588" height="31"/>
                                                     <connections>
                                                         <action selector="relPaddleChanged:" destination="IQQ-0T-ViK" eventType="valueChanged" id="NgS-F3-Y7H"/>
                                                     </connections>
                                                 </slider>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    Relative paddle size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMq-Ae-SVR">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="    Rel. paddle size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMq-Ae-SVR">
                                                     <rect key="frame" x="8" y="8" width="167" height="19.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -208,7 +213,7 @@
                                                 <constraint firstItem="MMq-Ae-SVR" firstAttribute="top" secondItem="lre-TO-hFj" secondAttribute="topMargin" id="4qz-oo-0tf"/>
                                                 <constraint firstItem="MMq-Ae-SVR" firstAttribute="leading" secondItem="lre-TO-hFj" secondAttribute="leadingMargin" id="CRj-ca-81K"/>
                                                 <constraint firstItem="N6x-JQ-S8i" firstAttribute="top" secondItem="lre-TO-hFj" secondAttribute="topMargin" id="Mb0-yu-fjP"/>
-                                                <constraint firstItem="c1R-O3-a1B" firstAttribute="top" secondItem="MMq-Ae-SVR" secondAttribute="bottom" constant="8" symbolic="YES" id="SzH-Il-gXv"/>
+                                                <constraint firstItem="c1R-O3-a1B" firstAttribute="top" secondItem="MMq-Ae-SVR" secondAttribute="bottom" id="SzH-Il-gXv"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="N6x-JQ-S8i" secondAttribute="trailing" id="f7b-Vo-58X"/>
                                                 <constraint firstItem="c1R-O3-a1B" firstAttribute="leading" secondItem="lre-TO-hFj" secondAttribute="leadingMargin" id="zU7-8T-oj9"/>
                                             </constraints>
@@ -256,7 +261,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="25" translatesAutoresizingMaskIntoConstraints="NO" id="6tU-Dj-F59">
-                                                    <rect key="frame" x="6" y="35" width="588" height="31"/>
+                                                    <rect key="frame" x="6" y="27.5" width="588" height="31"/>
                                                     <connections>
                                                         <action selector="pushMagnChanged:" destination="IQQ-0T-ViK" eventType="valueChanged" id="xki-F2-EWq"/>
                                                     </connections>
@@ -275,7 +280,7 @@
                                                 <constraint firstItem="W49-vF-DHS" firstAttribute="top" secondItem="9Mt-cL-NZI" secondAttribute="topMargin" id="QyP-Pe-PWZ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="yrw-xc-lr0" secondAttribute="trailing" id="Xtm-D1-Udz"/>
                                                 <constraint firstItem="yrw-xc-lr0" firstAttribute="top" secondItem="9Mt-cL-NZI" secondAttribute="topMargin" id="ddA-85-A7b"/>
-                                                <constraint firstItem="6tU-Dj-F59" firstAttribute="top" secondItem="W49-vF-DHS" secondAttribute="bottom" constant="8" symbolic="YES" id="pzy-KV-ZUB"/>
+                                                <constraint firstItem="6tU-Dj-F59" firstAttribute="top" secondItem="W49-vF-DHS" secondAttribute="bottom" id="pzy-KV-ZUB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -287,7 +292,13 @@
                             <outlet property="delegate" destination="IQQ-0T-ViK" id="jQ0-Ap-QhV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="TeM-dx-ihH"/>
+                    <navigationItem key="navigationItem" title="Settings" id="TeM-dx-ihH">
+                        <barButtonItem key="rightBarButtonItem" title="Reset" id="pmC-yw-Tps" userLabel="Item">
+                            <connections>
+                                <action selector="resetSettings:" destination="IQQ-0T-ViK" id="VDL-hV-FNR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="brickColumnLabel" destination="yWT-ob-wte" id="ZKa-b3-kUO"/>
                         <outlet property="brickColumnStepper" destination="kHg-eK-ZUn" id="5ms-zX-Kbn"/>

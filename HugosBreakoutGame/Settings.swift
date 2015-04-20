@@ -42,6 +42,15 @@ class Settings
         set {defaults.setObject(newValue, forKey: Constants.gravityKey) }
     }
     
+    func resetSettings() {
+        brickRows = Constants.brickRowDefault
+        brickColumns = Constants.brickColumnDefault
+        brickLevel = Constants.brickLevelDefault
+        relPaddleSize = Constants.relPaddleDefault
+        gravity = Constants.gravityDefault
+        pushMagnitude = Constants.pushMagnDefault
+    }
+    
     // MARK: - Constants
     
     private struct Constants {

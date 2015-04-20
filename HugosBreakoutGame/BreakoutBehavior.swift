@@ -12,6 +12,10 @@ class BreakoutBehavior: UIDynamicBehavior {
     
     private let gravity = UIGravityBehavior()
     
+    var collisionDelegate: UICollisionBehaviorDelegate? {
+        didSet { collider.collisionDelegate = collisionDelegate}
+    }
+    
     private lazy var collider: UICollisionBehavior = {
         let lazyCollider = UICollisionBehavior()
         lazyCollider.translatesReferenceBoundsIntoBoundary = false

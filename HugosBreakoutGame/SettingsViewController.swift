@@ -51,6 +51,16 @@ class SettingsViewController: UITableViewController {
     
     private let settings = Settings()
     
+    @IBAction func resetSettings(sender: UIBarButtonItem) {
+        settings.resetSettings()
+        brickRows = settings.brickRows
+        brickColumns = settings.brickColumns
+        brickLevel = settings.brickLevel
+        relPaddleSize = settings.relPaddleSize
+        pushMagnitude = settings.pushMagnitude
+        gravity = settings.gravity
+    }
+    
     private var brickRows: Int {
         get { return Int(brickRowStepper.value) }
         set {
