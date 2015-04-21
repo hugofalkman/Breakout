@@ -41,7 +41,7 @@ class BreakoutBehavior: UIDynamicBehavior {
     var gravityOn: Bool!
     
     var items: [UIView] {
-        return ballBehavior.items.map{$0 as UIView}
+        return ballBehavior.items.map{$0 as! UIView}
     }
     
     override init() {

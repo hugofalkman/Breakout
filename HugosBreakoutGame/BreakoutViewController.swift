@@ -191,7 +191,8 @@ class BreakoutViewController: UIViewController, UICollisionBehaviorDelegate
     
     private var relPaddleWidth: CGFloat! {
         didSet {
-            if !gameViewSizeChanged {
+            if !gameViewSizeChanged &&
+                oldValue != relPaddleWidth {
                 resetPaddle()
             }
         }
@@ -230,14 +231,16 @@ class BreakoutViewController: UIViewController, UICollisionBehaviorDelegate
     
     private var brickRows: Int! {
         didSet {
-            if !gameViewSizeChanged {
+            if !gameViewSizeChanged &&
+                oldValue != brickRows {
                 generateBricks()
             }
         }
     }
     private var brickColumns: Int! {
         didSet {
-            if !gameViewSizeChanged {
+            if !gameViewSizeChanged &&
+                oldValue != brickColumns {
                 generateBricks()
             }
         }
@@ -245,7 +248,8 @@ class BreakoutViewController: UIViewController, UICollisionBehaviorDelegate
     
     private var brickLevel: Int! {
         didSet {
-            if !gameViewSizeChanged {
+            if !gameViewSizeChanged &&
+                oldValue != brickLevel {
                 generateBricks()
             }
         }

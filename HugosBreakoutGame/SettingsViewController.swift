@@ -38,27 +38,25 @@ class SettingsViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        let setting = Settings()
-        brickRows = setting.brickRows
-        brickColumns = setting.brickColumns
-        brickLevel = setting.brickLevel
-        relPaddleSize = setting.relPaddleSize
-        pushMagnitude = setting.pushMagnitude
-        gravity = setting.gravity
+        setSettings()
     }
     
     // MARK: - View
     
     private let settings = Settings()
     
-    @IBAction func resetSettings(sender: UIBarButtonItem) {
-        settings.resetSettings()
+    private func setSettings() {
         brickRows = settings.brickRows
         brickColumns = settings.brickColumns
         brickLevel = settings.brickLevel
         relPaddleSize = settings.relPaddleSize
         pushMagnitude = settings.pushMagnitude
         gravity = settings.gravity
+    }
+    
+    @IBAction func resetSettings(sender: UIBarButtonItem) {
+        settings.resetSettings()
+        setSettings()
     }
     
     private var brickRows: Int {
