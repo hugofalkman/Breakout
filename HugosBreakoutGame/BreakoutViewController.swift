@@ -63,7 +63,7 @@ class BreakoutViewController: UIViewController, UICollisionBehaviorDelegate
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        // Changes to settings will become active when tabbing back to Breakout game
+        // Changes to settings will become active when tabbing back to Breakout game (and initialized with defaults from settings first time)
         let settings = Settings()
         brickRows = settings.brickRows
         brickColumns = settings.brickColumns
@@ -71,6 +71,15 @@ class BreakoutViewController: UIViewController, UICollisionBehaviorDelegate
         relPaddleWidth = settings.relPaddleSize
         pushStrength = settings.pushMagnitude
         breakoutBehavior.gravityOn = settings.gravity
+        
+        // Setup accelerometer
+        let motionManager = AppDelegate.Motion.Manager
+        if motionManager.accelerometerAvailable {
+            motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.mainQueue()) {
+                (data,error) -> Void in
+                self.breakoutBehavior.gravity.gravityDirection = CGVector(dx: data.acceleration.x, dy: -data.acceleration.y)
+            }
+        }
         
     }
     
@@ -104,6 +113,11 @@ class BreakoutViewController: UIViewController, UICollisionBehaviorDelegate
             // Initialize brick array
             generateBricks()
         }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        AppDelegate.Motion.Manager.stopAccelerometerUpdates()
     }
     
     // MARK: - Delegates

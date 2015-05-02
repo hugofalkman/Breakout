@@ -10,7 +10,7 @@ import UIKit
 
 class BreakoutBehavior: UIDynamicBehavior {
     
-    private let gravity = UIGravityBehavior()
+    let gravity = UIGravityBehavior()
     
     var collisionDelegate: UICollisionBehaviorDelegate? {
         didSet { collider.collisionDelegate = collisionDelegate}
@@ -27,7 +27,7 @@ class BreakoutBehavior: UIDynamicBehavior {
         lazyBallBehavior.allowsRotation = false
         lazyBallBehavior.elasticity = 1.0
         lazyBallBehavior.friction = 0.0
-        lazyBallBehavior.resistance = 0.008
+        lazyBallBehavior.resistance = 0.0
         lazyBallBehavior.action = {
             for item in self.items {
                 if !CGRectIntersectsRect(item.frame, self.dynamicAnimator!.referenceView!.bounds) {

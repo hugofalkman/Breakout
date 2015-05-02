@@ -85,6 +85,7 @@
 		B1605FF81AD5960D00A3E8E8 /* HugosBreakoutGame */ = {
 			isa = PBXGroup;
 			children = (
+				B1605FFB1AD5960D00A3E8E8 /* AppDelegate.swift */,
 				B160601D1AD59CDD00A3E8E8 /* BreakoutViewController.swift */,
 				B1DFD65D1AD680D7007AAC3F /* BreakoutBehavior.swift */,
 				B1D566051ADAB23900AAD7E9 /* SettingsViewController.swift */,
@@ -99,7 +100,6 @@
 		B1605FF91AD5960D00A3E8E8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B1605FFB1AD5960D00A3E8E8 /* AppDelegate.swift */,
 				B16060021AD5960D00A3E8E8 /* Images.xcassets */,
 				B1605FFA1AD5960D00A3E8E8 /* Info.plist */,
 				B16060041AD5960D00A3E8E8 /* LaunchScreen.xib */,
