@@ -33,7 +33,7 @@ class BreakoutViewController: UIViewController, UICollisionBehaviorDelegate
     private func push(view: UIView, points: CGFloat) {
         if let pushBehavior = UIPushBehavior(items: [view], mode: UIPushBehaviorMode.Instantaneous) {
             pushBehavior.magnitude = pushStrength * points / 10000.0
-            pushBehavior.angle = CGFloat(2 * M_PI * Double(arc4random()) / Double(UINT32_MAX))
+            pushBehavior.angle = CGFloat(randomAngle())
             // println("\(pushBehavior.angle)")
             pushBehavior.action = { [unowned pushBehavior] in
                 pushBehavior.dynamicAnimator!.removeBehavior(pushBehavior)
@@ -184,17 +184,30 @@ class BreakoutViewController: UIViewController, UICollisionBehaviorDelegate
           
             breakoutBehavior.addBall(ballView)
             numBallsPushed++
+            
+            // Push a new ball
+            var points = ballSize.width / 2.0
+            points = CGFloat(M_PI) * points * points
+            push(breakoutBehavior.items.last!, points: points)
+        } else {
+            // New random direction for existing ball with same velocity
+            let ball = breakoutBehavior.items.last!
+            var velocity = breakoutBehavior.stopBall(ball)
+            let magnitude = Double(hypot(velocity.x, velocity.y))
+            let angle = randomAngle()
+            velocity.x = CGFloat(magnitude * cos(angle))
+            velocity.y = CGFloat(magnitude * sin(angle))
+            breakoutBehavior.startBall(ball, velocity: velocity)
         }
-        
-        var points = ballSize.width / 2.0
-        points = CGFloat(M_PI) * points * points
-        
-        push(breakoutBehavior.items.last!, points: points)
     }
     
     private func placeBall(ball: UIView) {
         ball.center = paddle.center
         ball.center.y -= (Constants.PaddleHeight + ballSize.height) / 2
+    }
+    
+    private func randomAngle() -> Double {
+        return 2 * M_PI * Double(arc4random()) / Double(UINT32_MAX)
     }
     
     // MARK: - Barriers including paddle
