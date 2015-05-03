@@ -73,6 +73,16 @@ class BreakoutBehavior: UIDynamicBehavior {
         ballBehavior.removeItem(ball)
         ball.removeFromSuperview()
     }
+    
+    func stopBall(ball: UIView) -> CGPoint {
+        let linVeloc = ballBehavior.linearVelocityForItem(ball)
+        ballBehavior.addLinearVelocity(CGPoint(x: -linVeloc.x, y: -linVeloc.y), forItem: ball)
+        return linVeloc
+    }
+    
+    func startBall(ball: UIView, velocity: CGPoint) {
+        ballBehavior.addLinearVelocity(velocity, forItem: ball)
+    }
 }
 
 

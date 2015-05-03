@@ -72,6 +72,13 @@ class BreakoutViewController: UIViewController, UICollisionBehaviorDelegate
         pushStrength = settings.pushMagnitude
         breakoutBehavior.gravityOn = settings.gravity
         
+        // Restart balls when tabbing back to Breakout game
+        if !ballVelocity.isEmpty {
+            for i in 0..<breakoutBehavior.items.count {
+                breakoutBehavior.startBall(breakoutBehavior.items[i], velocity: ballVelocity[i])
+            }
+        }
+        
         // Setup accelerometer
         let motionManager = AppDelegate.Motion.Manager
         if motionManager.accelerometerAvailable {
@@ -118,6 +125,12 @@ class BreakoutViewController: UIViewController, UICollisionBehaviorDelegate
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         AppDelegate.Motion.Manager.stopAccelerometerUpdates()
+        
+        // Stop balls
+        ballVelocity = []
+        for ball in breakoutBehavior.items {
+            ballVelocity.append(breakoutBehavior.stopBall(ball))
+        }
     }
     
     // MARK: - Delegates
@@ -159,6 +172,8 @@ class BreakoutViewController: UIViewController, UICollisionBehaviorDelegate
         let size = Constants.RelBallSize * min(gameView.bounds.size.width, gameView.bounds.size.height)
         return CGSize(width: size, height: size)
     }
+    
+    private var ballVelocity = [CGPoint]()
     
     private func ball() {
         if breakoutBehavior.items.count == 0 {
